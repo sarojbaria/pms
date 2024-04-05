@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Management System</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .hero {
+    background-color: #f2f2f2;
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+  }
+  
+  .feature {
+    flex-basis: 30%;
+    text-align: center;
+  }
+  
+  .btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to the Project Management System</h1>
+    
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Your Project Management Solution</h2>
+      <p>Manage your projects, tasks, and teams efficiently.</p>
+      <a href = "{% url 'login' %}" class="btn">Get Started</a>
+    </section>
+
+    <section class="features">
+      <h2>Key Features</h2>
+      <div class="feature">
+        <h3>Project Tracking</h3>
+        <p>Track the progress of your projects in real-time.</p>
+      </div>
+      <div class="feature">
+        <h3>Task Management</h3>
+        <p>Organize and prioritize tasks for your team.</p>
+      </div>
+      <div class="feature">
+        <h3>Team Collaboration</h3>
+        <p>Collaborate seamlessly with your team members.</p>
+      </div>
+
+      <div class="col-sm-5 text-center text-sm-left">
+        
+    </section>
+  </main>
+  <div class="col-sm-5 text-center text-sm-left">
+    <div class="card-body pb-0 px-0 px-md-4">
+      <img src="https://th.bing.com/th/id/OIP.kAKxW6YbFf1bG_YkagMbowAAAA?rs=1&pid=ImgDetMain" height="160" width="200" alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png" data-app-light-img="illustrations/man-with-laptop-light.png">
+      <img src="https://th.bing.com/th/id/OIP.TpyFDYF_suOEozKJH_xtzwHaE8?w=612&h=408&rs=1&pid=ImgDetMain" height="160" width="200" alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png" data-app-light-img="illustrations/man-with-laptop-light.png">
+      <img src="https://th.bing.com/th/id/OIP.eJkaw0fgzwcxA7I_--FA6wHaEc?w=5278&h=3167&rs=1&pid=ImgDetMain" height="160" width="200" alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png" data-app-light-img="illustrations/man-with-laptop-light.png">
+      <img src="https://t3.ftcdn.net/jpg/01/05/00/04/500_F_105000425_7bIJVzmjG1JPQ3lmxmxXD1HOuFbBfXTd.jpg" height="160" width="200" alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png" data-app-light-img="illustrations/man-with-laptop-light.png">
+      <img src="https://th.bing.com/th/id/OIP.TpyFDYF_suOEozKJH_xtzwHaE8?w=612&h=408&rs=1&pid=ImgDetMain" height="160" width="200" alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png" data-app-light-img="illustrations/man-with-laptop-light.png">
+
+    </div>
+    
+
+  <footer>
+    <p>&copy; 2024 Project Management System. All rights reserved.</p>
+  </footer>
+</body>
+</html>

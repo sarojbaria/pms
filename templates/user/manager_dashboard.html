@@ -1,0 +1,290 @@
+{% extends "../base.html" %} {% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <div class="card-header pb-0">
+                      <h6>Project LIST</h6>
+                      <a href = "{% url 'project_create' %}" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProjectModal">Add Project</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div
+                    class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle"
+                  >
+                    <i
+                      class="ni ni-money-coins text-lg opacity-10"
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="card-header pb-0">
+                    <h6>assign task</h6>
+                    <a href = "{% url 'task_assign' %}" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProjectModal">Add task</a>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div
+                    class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle"
+                  >
+                    <i
+                      class="ni ni-world text-lg opacity-10"
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="card-header pb-0">
+                    <h6>new Team</h6>
+                    <a href = "{% url 'project_team_create' %}" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProjectModal">Create Team</a>
+                  </div>
+                  
+                </div>
+                <div class="col-4 text-end">
+                  <div
+                    class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle"
+                  >
+                    <i
+                      class="ni ni-paper-diploma text-lg opacity-10"
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <div class="card-header pb-0">
+                      <h6>Image</h6>
+                      <a href = "{% url 'image_list' %}" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProjectModal">view image</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div
+                    class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle"
+                  >
+                    <i
+                      class="ni ni-cart text-lg opacity-10"
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-lg-7 mb-lg-0 mb-4">
+          <div class="card z-index-2 h-100">
+            <div class="card-header pb-0 pt-3 bg-transparent">
+              <h6 class="text-capitalize">Projects List</h6>
+              <p class="text-sm mb-0">
+                <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
+                <span class="font-weight-bold">view a List</span> 
+              </p>
+            </div>
+            <div class="card-body p-3">
+              <div class="chart">
+                <div class="table-responsive p-0">
+                  <table class="table align-items-center mb-0">
+                    <thead>
+                      <tr>
+                        <th
+                          class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                        >
+                          Project Name
+                        </th>
+                        <th
+                          class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                        >
+                          Technology
+                        </th>
+                        <th
+                          class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                        >
+                          Estimeted Hours
+                        </th>
+                        <th
+                          class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                        >
+                          Start Date
+                        </th>
+                        <th
+                          class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                        >
+                          End Date
+                        </th>
+                        <th class="text-secondary opacity-7">ACTION</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for project in projects %}
+
+                      <tr>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div>
+                              
+                            </div>
+                            <div
+                              class="d-flex flex-column justify-content-center"
+                            >
+                              <h6 class="mb-0 text-sm">{{project.name}}</h6>
+                              
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0">
+                            {{project.technology}}
+                          </p>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                          <span class="badge badge-sm bg-gradient-success"
+                            >{{project.estimated_hours}}</span
+                          >
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold"
+                            >{{project.startDate}}</span
+                          >
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold"
+                            >{{project.endDate}}</span
+                          >
+                        </td>
+                        <td class="align-middle">
+                          <a
+                            href="javascript:;"
+                            class="text-secondary font-weight-bold text-xs"
+                            data-toggle="tooltip"
+                            data-original-title="Edit user"
+                          >
+                            EDIT
+                          </a>
+                          <a
+                            href="javascript:;"
+                            class="text-secondary font-weight-bold text-xs"
+                            data-toggle="tooltip"
+                            data-original-title="Edit user"
+                          >
+                            DETAIL
+                          </a>
+                          <a
+                            href="javascript:;"
+                            class="text-secondary font-weight-bold text-xs"
+                            data-toggle="tooltip"
+                            data-original-title="Edit user"
+                          >
+                            DELETE
+                          </a>
+                        </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="background-color: transparent;">
+      <div id="container" style="width: 400px; height: 300px;">
+          <canvas id="bar-chart"></canvas>
+      </div>
+
+  </div>
+ 
+
+{% block script %}
+  <script>
+      var config = {
+          type: 'pie',
+          data: {
+              labels: {{ labels | safe }},
+              datasets: [{
+                  label: 'Data',
+                  backgroundColor: [
+                      'red',
+                      'blue',
+                      'green',
+                      'yellow',
+                      'orange'
+                  ],
+                  borderColor: [
+                      'red',
+                      'blue',
+                      'green',
+                      'yellow',
+                      'orange'
+                  ],
+                  borderWidth: 1,
+                  data: {{ data | safe }}
+              }]
+          },
+          options: {
+              responsive: true,
+              scales: {
+                  x: {
+                      display: false, // Remove x-axis gridlines
+                  },
+                  y: {
+                      display: false, // Remove y-axis gridlines
+                  }
+              }
+          }
+      };
+
+      window.onload = function() {
+          var ctx = document.getElementById('bar-chart').getContext('2d');
+          window.myBar = new Chart(ctx, config);
+      };
+  </script>
+{% endblock script %}
+  </body>
+</html>
+{% endblock content %}

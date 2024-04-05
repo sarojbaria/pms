@@ -1,0 +1,17 @@
+{% extends "../base.html" %}
+
+{% block content %}
+
+<h1>image list</h1>
+<div>
+  {% for project in project %}
+    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+      <h2>{{ project.name }}</h2>
+      {% if project..url %}
+        <img src="{{ project.image_list.url }}" alt="Receipt Image" style="width: 100px; height: 100px; margin-left: 20px;">
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}
